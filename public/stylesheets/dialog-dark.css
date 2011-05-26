@@ -1,0 +1,34 @@
+.dialog_dark {
+    width:     100%;
+    margin:    0px auto;
+    min-width: 20em;
+    color:     #000;
+    }
+
+.dialog_dark a         { color: #ddd; text-decoration: none; }
+.dialog_dark a:visited { color: #ddd; }
+.dialog_dark a:hover   { color: #000; text-decoration: underline; }
+
+
+.dialog_dark .hd .c, .dialog_dark .ft .c { height: 10px; font-size: 1px; }
+.dialog_dark .ft .c                 { height: 20px; }
+
+.dialog_dark .hd    { background: transparent url(../images/tl.gif) no-repeat       0px 0px; }
+.dialog_dark .hd .c { background: transparent url(../images/tr.gif) no-repeat right 0px; }
+.dialog_dark .bd    { background: transparent url(../images/ml.gif) repeat-y        0px 0px; }
+.dialog_dark .bd .c { background: transparent url(../images/mr.gif) repeat-y  right 0px; }
+
+.dialog_dark .bd .c .s {
+    margin:     0px 20px 0px 20px;
+    background: #7f7f7f url(ms.jpg) repeat-x 0px 0px;
+    padding:    0.5em;
+    }
+
+.dialog_dark .ft    { background: transparent url(../images/bl.gif) no-repeat       0px 0px; }
+.dialog_dark .ft .c { background: transparent url(../images/br.gif) no-repeat right 0px; }
+
+.dialog_dark ul                      { list-style-type: none; margin: 0px; padding: 0px; }
+.dialog_dark ul li:first-child       { font-weight: bold; padding-top: 0px; text-align: center; color: #f8bd4c; }
+.dialog_dark ul li                   { padding-top: 12px; text-align: center; }
+.dialog_dark ul li ul li             { padding-top: 2px; }
+.dialog_dark ul li ul li:first-child { font-weight: normal; text-align: center; }

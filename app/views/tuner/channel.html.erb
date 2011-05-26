@@ -1,0 +1,106 @@
+<script>
+$(document).ready(function() {
+    $('li[title]').qtip({
+        content:  { title: { text: 'Channel information', button: false } },
+        position: { my: 'top left', at: 'bottom left' },
+        style:    { classes: 'ui-tooltip-shadow ui-tooltip-dark' },
+        show:     { event: 'click', solo: true, effect: function() { $(this).slideDown(100); } },
+        hide:     { event: 'click', effect: function() { $(this).slideUp(100); } }
+    })
+});
+</script>
+
+<% 
+pc = @tuner.previous_channel
+nc = @tuner.next_channel
+
+pc ?
+    (pc_name, pc_alias = pc.name, (pc.alias && !pc.alias.empty?) ? " / #{pc.alias}" : '') :
+    (pc_name, pc_alias = 'none', '')
+
+nc ?
+    (nc_name, nc_alias = nc.name, (nc.alias && !nc.alias.empty?) ? " / #{nc.alias}" : '') :
+    (nc_name, nc_alias = 'none', '')
+
+c_name = 'none'
+
+if @channel_name then
+    unless @channel_name.empty? then
+        c_name = @channel_name
+    end
+end
+
+c_alias = ''
+
+if @channel_alias then
+    unless @channel_alias.empty? then
+        c_alias = " / #{@channel_alias}"
+    end
+end
+%>
+
+<div class='dialog_dark'>
+    <div class="hd"><div class="c"></div></div>
+    <div class="bd">
+        <div class="c">
+            <div class="s">
+                <ul class='infobox device'>
+                    <li>HDHomeRun <%= "#{@device_address} / #{@tuner_address} at #{@device.ip_address}" %></li>
+                    <li>
+						<ul>
+							<li><a href='<%= url_for :controller => 'tuner', :action => 'target', :device_address => @device_address, :tuner_address => @tuner_address %>'>Viewed by <%= "#{@target}" %></a></li><li>Click to change streaming target</li>
+					    </ul>
+					</li>
+                    <li>
+						<ul>
+							<li class='channel_navigator'>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'tune_down' %>'>Previous</a></span>
+								<span>&bull;</span>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'channel', :device_address => @device_address, :tuner_address => @tuner_address %>'>Channels</a></span>
+								<span>&bull;</span>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'tune_up' %>'>Next</a></span>
+							</li>
+							<li class='current_channel'>Current is <%= c_name %><%= c_alias %></li>
+							<li>Previous is <%= pc_name %><%= pc_alias %></li>
+							<li>Next is <%= nc_name %><%= nc_alias %></li>
+					    </ul>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft"><div class="c"></div></div>
+</div>
+
+<h2>Channel lineup</h2>
+
+<div class='dialog_light'>
+    <div class="hd"><div class="c"></div></div>
+    <div class="bd">
+        <div class="c">
+            <div class="s">
+                <ul class='infobox lineup'>
+
+				<% if @channels.count > 0 %>
+
+                <% @channels.each do |channel| %>
+                    <li title='<%= "<div>#{channel.alias}</div><div>#{channel.description}</div><div></div>" %>'>
+						<span class='channel_entry'>
+							<a class='noeffect' href='<%= url_for :controller => 'tuner', :action => 'channel', :device_address => @device_address, :tuner_address => @tuner_address, :channel_name => channel.name %>'>
+								<span><%= channel.name %></span>
+								<span class='channel_alias <%= 'dimmed' if !channel.alias%>'><%= channel.alias || 'Untitled' %></span>
+							</a>
+						</span>
+					</li>
+                <% end %>
+
+				<% else %>
+					<li><a href='<%= setup_url %>'>Configure device, tuners, and channels</a></li>
+				<% end %>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft"><div class="c"></div></div>
+</div>

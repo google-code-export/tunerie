@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= application_name %></title>
+	<%= stylesheet_link_tag    '/jquery.qtip/jquery.qtip.css' %>
+	<%= stylesheet_link_tag    :all %>
+	<%= javascript_include_tag :defaults %>
+	<%= javascript_include_tag '/jquery.qtip/jquery.qtip.js' %>
+	<%= csrf_meta_tag %>
+</head>
+<body>
+    <div class='header'>
+        <h1><a href='<%= tuner_url %>'><%= application_name %></a></h1>
+    </div>
+	<div class='page'>
+		<%= yield %>
+	</div>
+	<div class='footer'>
+		<%= render 'global_footer' %>
+	</div>
+</body>
+</html>

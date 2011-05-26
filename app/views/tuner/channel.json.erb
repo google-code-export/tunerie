@@ -1,0 +1,3 @@
+<%=
+raw [ 'device_address' => @device_address, 'tuner_address' => @tuner_address, 'channels' => @channels ].to_json :except => [ :id, :tuner_id, :created_at, :updated_at ]
+%>

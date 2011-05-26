@@ -1,0 +1,70 @@
+---
+CHANNEL-093-627  : [ "qam256:93",  627, "Mid Atlantic Sports Network (MASN)" ]
+CHANNEL-091-141  : [ "qam256:91",  141, "Washington DC FOX 5 network affiliate" ]
+CHANNEL-091-142  : [ "qam256:91",  142, "Washington DC my20 network affiliate" ]
+CHANNEL-090-541  : [ "qam256:90",  541, "Univision network affiliate in Spanish" ]
+CHANNEL-090-542  : [ "qam256:90",  542, "Telefutura network affiliate in Spanish" ]
+CHANNEL-090-543  : [ "qam256:90",  543, "LATV bilingual music and entertainment" ]
+CHANNEL-083-1    : [ "qam256:83",    1, "Video on demand information" ]
+CHANNEL-083-2    : [ "qam256:83",    2, "TV Guide" ]
+CHANNEL-079-441  : [ "qam256:79",  441, "Washington DC NBC network affiliate" ]
+CHANNEL-079-442  : [ "qam256:79",  442, "Washington DC NBC network affiliate (2)" ]
+CHANNEL-079-443  : [ "qam256:79",  443, "Washington DC CBS network affiliate" ]
+CHANNEL-079-444  : [ "qam256:79",  444, "Washington DC CBS network affiliate (2)" ]
+CHANNEL-079-445  : [ "qam256:79",  445, "Washington DC NBC network affiliate (3)" ]
+CHANNEL-078-1    : [ "qam256:78",    1, "Al Jazeera" ]
+CHANNEL-078-2    : [ "qam256:78",    2, "NHK Japanese news and entertainment" ]
+CHANNEL-078-3    : [ "qam256:78",    3, "" ]
+CHANNEL-078-4    : [ "qam256:78",    4, "Russia Today" ]
+CHANNEL-078-5    : [ "qam256:78",    5, "Al Jazeera in Spanish" ]
+CHANNEL-078-6    : [ "qam256:78",    6, "" ]
+CHANNEL-078-7    : [ "qam256:78",    7, "FRANCE 24" ]
+CHANNEL-078-8    : [ "qam256:78",    8, "" ]
+CHANNEL-078-9    : [ "qam256:78",    9, "Arirang Korean news and entertainment" ]
+CHANNEL-078-10   : [ "qam256:78",   10, "" ]
+CHANNEL-072-402  : [ "qam256:72",  402, "EWTN Catholic TV programming" ]
+CHANNEL-072-412  : [ "qam256:72",  412, "WGN America sports programming" ]
+CHANNEL-022-241  : [ "qam256:22",  241, "DC 50 CW network affiliate" ]
+CHANNEL-022-242  : [ "qam256:22",  242, "Maryland Public Television" ]
+CHANNEL-022-243  : [ "qam256:22",  243, "Maryland Public Television (2)" ]
+CHANNEL-022-244  : [ "qam256:22",  244, "Maryland Public Television V-Me in Spanish" ]
+CHANNEL-022-245  : [ "qam256:22",  245, "This TV" ]
+CHANNEL-022-246  : [ "qam256:22",  246, "Antenna TV" ]
+CHANNEL-021-970  : [ "qam256:21",  970, "Security camera feed at the gate" ]
+CHANNEL-021-971  : [ "qam256:21",  971, "Dominion Valley Country Club bulletin board" ]
+CHANNEL-098-1041 : [ "qam256:98", 1041, "Washington DC Ion TV network affiliate" ]
+CHANNEL-098-1042 : [ "qam256:98", 1042, "Howard University public programming" ]
+CHANNEL-095-1003 : [ "qam256:95", 1003, "News Channel 8 programming" ]
+---
+CHANNEL-093-627  : MASN2
+CHANNEL-091-141  : WTTGDT (FOX)
+CHANNEL-091-142  : WDCADT
+CHANNEL-090-541  : WFDCDT
+CHANNEL-090-542  : WMDOLD
+CHANNEL-090-543  : LATV
+CHANNEL-083-1    : VODDM
+CHANNEL-083-2    : TVGN
+CHANNEL-078-1    : ALJAZEERA
+CHANNEL-078-2    : NHK
+CHANNEL-078-4    : RT
+CHANNEL-078-5    : ALJAZEERA2
+CHANNEL-078-7    : FRANCE24
+CHANNEL-078-9    : ARIRANG
+CHANNEL-079-441  : WRCDT (NBC)
+CHANNEL-079-442  : WRCDT2
+CHANNEL-079-443  : WUSADT (CBS)
+CHANNEL-079-444  : WUSADT2
+CHANNEL-079-445  : WRCDT3
+CHANNEL-072-402  : EWTN
+CHANNEL-072-412  : WGNAMER
+CHANNEL-022-241  : WDCWDT
+CHANNEL-022-242  : WMPTDT
+CHANNEL-022-243  : WMPTDT2
+CHANNEL-022-244  : WMPTDT3
+CHANNEL-022-245  : WDCWDT2 (THIS)
+CHANNEL-022-246  : ANTENNA
+CHANNEL-021-970  : SECURITY
+CHANNEL-021-971  : DVCC
+CHANNEL-098-1041 : WPXWDT (ION)
+CHANNEL-098-1042 : WHUTDT
+CHANNEL-095-1003 : TBDTV

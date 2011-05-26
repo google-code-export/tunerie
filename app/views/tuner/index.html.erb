@@ -1,0 +1,30 @@
+<div class='dialog_dark'>
+    <div class="hd"><div class="c"></div></div>
+    <div class="bd">
+        <div class="c">
+            <div class="s">
+				<% if @devices.count > 0 then %>
+
+                <% @devices.each do |device| %>
+                <ul class='infobox device'>
+                    <li><span>HDHomeRun <%= device.address %> at <%= device.ip_address %></span></li>
+                    <% device.tuners.each do |tuner| %>
+                    <% viewer = tuner.current_target || 'no one' %>
+                    <li><span><ul><li><a href='<%= url_for :controller => 'tuner', :action => 'channel', :device_address => device.address, :tuner_address => tuner.address %>'><%= tuner.address %> set on channel <%= tuner.current_channel_name %><%= " / #{tuner.current_channel_alias}" if tuner.current_channel_alias %></a></li><li>Viewed by <%= viewer %></li></ul></span></li>
+                    <% end %>
+                </ul>
+                <% end %>
+
+				<% else %>
+
+                <ul class='infobox device'>
+                    <li><span>HDHomeRun</span></li>
+					<li><a href='<%= setup_url %>'>Configure device, tuners, and channels</a></li>
+				</ul>
+
+				<% end %>
+            </div>
+        </div>
+    </div>
+    <div class="ft"><div class="c"></div></div>
+</div>

@@ -1,0 +1,3 @@
+<%= 
+raw @devices.collect { |device| [ 'device' => device, 'tuners' => device.tuners ] }.to_xml :except => [ :id, :device_id, :tuner_id, :created_at, :updated_at ]
+%>

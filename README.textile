@@ -1,0 +1,116 @@
+h1. TUNERIE
+
+Tunerie is a Ruby on Rails web application that provides the ability 
+to control SiliconDust HDHomeRun networked TV tuners with a web browser.
+
+Once configured, you can select channels on the device tuners and
+stream them to a listening client such as VLC to display the live 
+high-definition TV programs from your cable or antenna feed.
+
+For more information, visit:
+
+* SiliconDust:    http://www.silicondust.com/
+* VideoLAN:       http://www.videolan.org/
+* Ruby:           http://www.ruby-lang.org/
+* Ruby on Rails:  http://rubyonrails.org/
+
+h2. PREREQUISITES
+
+You need to have the following to run and access Tunerie:
+
+* Web browser
+* Ruby 1.8.7 or better
+* Rails 3.0.6 or better
+* SiliconDust HDHomeRun hardware
+* SiliconDust HDHomeRun software
+
+There are several ways to get an environment to run Tunerie:
+
+* RailsInstaller on Windows
+  http://railsinstaller.org/
+
+* BitNami RubyStack on Windows, OS X, or Linux
+  http://bitnami.org/stack/rubystack
+
+* Roll your own UNIX / BSD / Linux platform Ruby on Rails stack
+  http://www.ubuntu.com/     for Ubuntu Linux Server Edition
+  http://fedoraproject.org/  for Fedora Linux
+  http://www.freebsd.org/    for FreeBSD UNIX
+
+Make sure that you install the HDHomeRun software and make it
+accessible to Tunerie.  On Windows, this means editing the
+PATH system variable to include the location of the 
+hdhomerun_config.exe.  On UNIX / BSD / Linux, this executable 
+is usually installed at a location in the existing PATH.
+
+To verify, do this from the Windows command line prompt:
+
+    C:\> hdhomerun_config.exe
+
+or do this from the UNIX / BSD / Linux command line prompt
+
+    $ hdhomerun_config
+
+If the above results in an error message, you will have to install
+the HDHomeRun software and add the location of its executables
+and library files in the system PATH variable before proceeding
+any further.
+
+h2. INSTALLATION AND CONFIGURATION
+
+[OPTIONAL] Edit Gemfile to specify your version of Rails and to 
+remove the dependency on Mongrel if you don't want to use it.
+
+[STEP] Rebuild the Gemfile.lock snapshot:
+
+    $ bundle install
+
+[STEP] Initialize the database and devices:
+
+    $ bundle exec rake db:migrate
+    $ bundle exec rake tunerie:initialize_devices
+    
+    Device XXXXXXXX at YYY.YYY.YYY.YYY created...
+    -> Tuner tuner0 created...
+    -> Tuner tuner1 created...
+
+Note XXXXXXXX, this is the ID of your HDHomeRun device.  You will
+need this ID in the following steps.
+
+[STEP - ALT 1] Scan and configure channels the *hard* way.  Only do this
+if you want to scan for channels on your own.  Otherwise, use the next,
+more automated, alternative method.
+
+    $ hdhomerun_config XXXXXXXX scan 0 db/data/tuner0-scan.txt
+    $ lib/process_scan.rb db/data/tuner0-scan.txt > db/data/tuner0-channels.yml
+    $ bundle exec rake tunerie:import_channels_for[XXXXXXXX,tuner0,db/data/XXXXXXXX-tuner0-channels.yml]
+    
+    Channel CHANNEL-093-627 for device XXXXXXXX tuner0 created...
+    Channel CHANNEL-091-141 for device XXXXXXXX tuner0 created...
+    ...
+
+[STEP - ALT 2] Scan and configure channels the *easier* way.  This
+steps automate the scanning and importing of the channels for the selected
+tuners.  Note that scanning for channels will take some time to complete.
+
+    $ bundle exec rake tunerie:initialize_channels_of[XXXXXXXX,tuner0]
+    $ bundle exec rake tunerie:initialize_channels_of[XXXXXXXX,tuner1]
+
+h2. RUNNING TUNERIE
+
+To start the server as a daemon:
+
+    $ rails server -d -p 3333
+
+Replace 3333 with any available port number that you would like to use.
+
+To stop the server:
+
+    $ lsof -i :3333
+    $ kill <pid>
+
+h2. Contact information
+
+MADHCKR
+madhckr@gmail.com
+@madhckr
