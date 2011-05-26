@@ -1,0 +1,30 @@
+<div class='dialog_dark'>
+	<div class="hd"><div class="c"></div></div>
+	<div class="bd">
+		<div class="c">
+			<div class="s">
+				<ul class='infobox device'>
+					<li><span>HDHomeRun <%= @discovered['device_address'] %> at <%= @discovered['device_ip_address'] %></span></li>
+					<% (0..(@discovered['tuners_count'] - 1)).each do |index| %>
+					<% 
+						 tuner_name   = "tuner#{index}" 
+						 tuner_status = Tuner.status(@discovered['device_address'], tuner_name)
+					   %>
+					<li>
+						<ul>
+							<li><a href=''>Scan <%= "#{tuner_name}" %> for channels</a></li>
+							<% if tuner_status then %>
+							<li>Status is <%= tuner_status[0] %></li>
+							<li>Target is <%= tuner_status[1] %></li>
+							<% else %>
+							<li>Unable to retrieve status</li>
+							<% end %>
+						</ul>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="ft"><div class="c"></div></div>
+</div>

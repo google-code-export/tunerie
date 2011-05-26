@@ -1,0 +1,91 @@
+<% 
+pc = @tuner.previous_channel
+nc = @tuner.next_channel
+
+pc ?
+    (pc_name, pc_alias = pc.name, (pc.alias && !pc.alias.empty?) ? " / #{pc.alias}" : '') :
+    (pc_name, pc_alias = 'none', '')
+
+nc ?
+    (nc_name, nc_alias = nc.name, (nc.alias && !nc.alias.empty?) ? " / #{nc.alias}" : '') :
+    (nc_name, nc_alias = 'none', '')
+
+c_name = 'none'
+
+if @channel_name then
+    unless @channel_name.empty? then
+        c_name = @channel_name
+    end
+end
+
+c_alias = ''
+
+if @channel_alias then
+    unless @channel_alias.empty? then
+        c_alias = " / #{@channel_alias}"
+    end
+end
+%>
+
+<div class='dialog_dark'>
+    <div class="hd"><div class="c"></div></div>
+    <div class="bd">
+        <div class="c">
+            <div class="s">
+                <ul class='infobox device'>
+                    <li>HDHomeRun <%= "#{@device_address} / #{@tuner_address} at #{@device.ip_address}" %></li>
+                    <li>
+						<ul>
+							<li><a href='<%= url_for :controller => 'tuner', :action => 'target', :device_address => @device_address, :tuner_address => @tuner_address %>'>Viewed by <%= "#{@target}" %></a></li><li>Change streaming target with the form below</li>
+					    </ul>
+					</li>
+                    <li>
+						<ul>
+							<li class='channel_navigator'>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'tune_down' %>'>Previous</a></span>
+								<span>&bull;</span>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'channel', :device_address => @device_address, :tuner_address => @tuner_address %>'>Channels</a></span>
+								<span>&bull;</span>
+								<span><a href='<%= url_for :controller => 'tuner', :action => 'tune_up' %>'>Next</a></span>
+							</li>
+							<li class='current_channel'>Current is <%= c_name %><%= c_alias %></li>
+							<li>Previous is <%= pc_name %><%= pc_alias %></li>
+							<li>Next is <%= nc_name %><%= nc_alias %></li>
+					    </ul>
+					</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft"><div class="c"></div></div>
+</div>
+
+<h2>Streaming target</h2>
+
+<%
+current_target = (!@target.eql? 'none') ? @target.sub("udp://", '') : "#{request.remote_ip}:1234"
+%>
+
+<div class='centered instructions'>
+    <div>As the target, enter, for example: <%= current_target %></div>
+    <div>On the VNC client, open the stream at: udp://@:1234/</div>
+</div>
+
+<div class='dialog_light'>
+    <div class="hd"><div class="c"></div></div>
+    <div class="bd">
+        <div class="c">
+            <div class="s">
+                <ul class='infobox target'>
+                <% form_tag(target_url, :method => 'get') do %>
+            	<fieldset>
+            		<div class='field  centered'><%= text_field_tag :target_address, current_target %></div>
+            		<div class='action centered'><%= submit_tag 'Stream' %></div>
+            	</fieldset>
+                <% end %>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="ft"><div class="c"></div></div>
+</div>

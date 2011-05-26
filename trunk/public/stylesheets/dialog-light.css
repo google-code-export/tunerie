@@ -1,0 +1,34 @@
+.dialog_light {
+    width:     100%;
+    margin:    0px auto;
+    min-width: 20em;
+    color:     #666;
+    }
+
+.dialog_light a         { color: #666; text-decoration: none; }
+.dialog_light a:visited { color: #666; }
+.dialog_light a:hover   { color: #000; text-decoration: underline; }
+
+
+.dialog_light .hd .c, .dialog_light .ft .c { height: 10px; font-size: 1px; }
+.dialog_light .ft .c                 { height: 20px; }
+
+.dialog_light .hd    { background: transparent url(../images/light-tl.gif) no-repeat       0px 0px; }
+.dialog_light .hd .c { background: transparent url(../images/light-tr.gif) no-repeat right 0px; }
+.dialog_light .bd    { background: transparent url(../images/light-ml.gif) repeat-y        0px 0px; }
+.dialog_light .bd .c { background: transparent url(../images/light-mr.gif) repeat-y  right 0px; }
+
+.dialog_light .bd .c .s {
+    margin:     0px 20px 0px 20px;
+    background: #f1f6f7 url(ms.jpg) repeat-x 0px 0px;
+    padding:    0.5em;
+    }
+
+.dialog_light .ft    { background: transparent url(../images/light-bl.gif) no-repeat       0px 0px; }
+.dialog_light .ft .c { background: transparent url(../images/light-br.gif) no-repeat right 0px; }
+
+.dialog_light ul                      { list-style-type: none; margin: 0px; padding: 0px; }
+.dialog_light ul li:first-child       { font-weight: bold; padding-top: 0px; text-align: left; color: #f8bd4c; }
+.dialog_light ul li                   { padding-top: 12px; text-align: left; }
+.dialog_light ul li ul li             { padding-top: 2px; }
+.dialog_light ul li ul li:first-child { font-weight: normal; text-align: left; }

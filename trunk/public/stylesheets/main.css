@@ -1,0 +1,66 @@
+body { color: #444; font-family: Verdana, Sans-serif; font-size: 10pt; background-color: #ccc; }
+
+h1, h2, h3, h4 { color: #444; text-align: center; }
+
+a         { text-decoration: none; color: #444; }
+a:visited { color: #444; }
+a:hover   { text-decoration: underline; color: #ddd; }
+
+.header a { color: #444; }
+
+div.page { width: 480px; max-width: 480px; margin: 0px auto; }
+
+ul.listview { list-style-type: none; margin: 0px; padding: 0px; border: 1px solid #ccc; border-radius: 10px; background-color: none; }
+
+ul.listview li             { border-bottom: 1px solid #ccc; }
+ul.listview li:first-child { font-weight: bold; color: #666; }
+ul.listview li:last-child  { border-bottom: none; }
+ul.listview li span        { padding: 8px 12px; display: inline-block; }
+ul.listview li br          { line-height: 0px; }
+
+ul.listview ul      { list-style-type: none; margin: 0px; padding: 0px; }
+ul.listview ul li a { color: #666; }
+
+ul.infobox            { }
+ul.infobox div.column { padding: 8px 12px; }
+ul.infobox div.left   { float: left; width: 80px; max-width: 80px; text-align: right; }
+
+ul.tuner  li:first-child { font-weight: normal; }
+ul.remote li:first-child { font-weight: normal; }
+ul.lineup li:first-child { font-weight: normal; }
+
+ul.device { background-color: #7f7f7f; }
+ul.tuner  { background-color: #7f7f7f; }
+ul.remote { background-color: #7f7f7f; }
+ul.lineup { background-color: #f1f6f7; }
+
+div.header div { margin: 16px 0px; }
+
+fieldset   { border: none; margin: 0px; padding: 0px; }
+form div   { margin: 8px 0px; }
+form input { padding: 4px; }
+
+.centered  { text-align: center; }
+
+ul.lineup li span.channel_entry                    { width: 454px; }
+ul.lineup li span.channel_entry span.channel_alias { text-align: right; float: right; font-weight: normal; color: #66a; }
+ul.lineup li span.channel_entry span.dimmed        { color: #bbb; }
+ul.lineup li:hover                                 { background-color: #eee; }
+ul.lineup li:first-child                           { padding-top: 8px; border-top: 1px solid #dde; }
+ul.lineup li                                       { border-bottom: 1px solid #dde; padding: 8px 0px; }
+
+.channel_navigator span { padding: 2px; }
+.current_channel { color: #eee; }
+
+div.instructions     { margin-bottom: 16px; font-size: 0.8em; }
+div.instructions div {  margin: 4px; }
+
+ul.target input[type=text]   { text-align:center; width: 65%; }
+ul.target input[type=submit] { text-align:center; padding: 6px 12px; }
+
+.ui-tooltip-dark .ui-tooltip-content { padding: 10px 9px; color: #ccc; }
+.ui-tooltip-content div { padding: 3px 0px; }
+.ui-tooltip-content div:first-child { padding-top: 0px; }
+
+.footer { text-align: center; margin-top: 8px;}
+.footer a:hover { color: #222; }
